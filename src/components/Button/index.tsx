@@ -10,7 +10,7 @@ const Base = styled(RebassButton)<{
   padding?: string
   width?: string
   borderRadius?: string
-  altDisabledStyle?: boolean
+  altDisbaledStyle?: boolean
 }>`
   padding: ${({ padding }) => (padding ? padding : '18px')};
   width: ${({ width }) => (width ? width : '100%')};
@@ -53,13 +53,12 @@ export const ButtonPrimary = styled(Base)`
     background-color: ${({ theme }) => darken(0.1, theme.primary1)};
   }
   &:disabled {
-    background-color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? theme.primary1 : theme.bg3)};
-    color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? 'white' : theme.text3)};
+    background-color: ${({ theme, altDisbaledStyle }) => (altDisbaledStyle ? theme.primary1 : theme.bg3)};
+    color: ${({ theme, altDisbaledStyle }) => (altDisbaledStyle ? 'white' : theme.text3)};
     cursor: auto;
     box-shadow: none;
     border: 1px solid transparent;
     outline: none;
-    opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.7' : '1')};
   }
 `
 
@@ -254,15 +253,11 @@ const ButtonErrorStyle = styled(Base)`
   }
 `
 
-export function ButtonConfirmed({
-  confirmed,
-  altDisabledStyle,
-  ...rest
-}: { confirmed?: boolean; altDisabledStyle?: boolean } & ButtonProps) {
+export function ButtonConfirmed({ confirmed, ...rest }: { confirmed?: boolean } & ButtonProps) {
   if (confirmed) {
     return <ButtonConfirmedStyle {...rest} />
   } else {
-    return <ButtonPrimary {...rest} altDisabledStyle={altDisabledStyle} />
+    return <ButtonPrimary {...rest} />
   }
 }
 
