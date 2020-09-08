@@ -89,6 +89,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
+    "clean": "gh-pages-clean",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
